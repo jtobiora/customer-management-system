@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+        <div class="col-md-12" *ngIf = 'flag'>
+          <div>
+            <h4> Customer Details</h4>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th class="hidden">S/N</th>
+                      <th>FirstName</th>
+                      <th>LastName</th>
+                      <th>Email</th>
+                      <th>PhoneNumber</th>
+                      <th>Address</th>
+                      <th>Action</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let user of users;index as i">
+                      <td class="hidden">{{i+1}}</td>
+                      <td>{{user.firstName}}</td>
+                      <td>{{user.lastName}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.phoneNumber}}</td>
+                      <td>{{user.address}}</td>
+                      <td><button class="btn btn-danger" (click)="deleteCustomer(user)"> Delete</button>
+                        <button class="btn btn-success" (click)="editCustomer(user)" style="margin-left: 20px;"> Edit</button></td>
+                      <!-- <td><a [routerLink]="['customer-details', user.id]" routerLinkActive="active">Detail</a></td> -->
+                      <td><button (click)='viewCustomerDetails(user.id)'>Detail</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->
+<div *ngIf = '!flag' style="margin-left:500px;margin-top:30px;"  class="col-md-8">
+      <div *ngIf ='customer && customer !== null' class="col-md-8">
+      <div style="text-align:center;font-weight:bold;font-size:20px;padding-bottom:7px;">Customer Details</div>
+    <table class="table table-bordered">
+        <thead>
+           
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-weight:bold;">FirstName</td>
+                <td>{{customer.firstName}}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">LastName</td>
+                <td>{{customer.lastName}}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Email</td>
+                <td>{{customer.email}}</td> 
+            </tr>  
+            <tr>
+                <td style="font-weight:bold;">Phone Number</td>
+                <td>{{customer.phoneNumber}}</td> 
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Address</td>
+                <td>{{customer.address}}</td> 
+            </tr>              
+        </tbody>
+    </table>
+   </div>
+</div>
+
+
+
