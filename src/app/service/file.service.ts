@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileService {
+  
   url: string = 'http://localhost:8080/template/upload';
 
   constructor(private http: HttpClient) { }
