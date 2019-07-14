@@ -1,0 +1,23 @@
+<div style="margin-top:10px;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+               <div class="col-md-10 col-md-offset-2"  style="border:1px solid #ddd;">
+                      <form method='post' [formGroup] ='regForm'  (ngSubmit)="tryUpload()" enctype="multipart/form-data">
+                        <fieldset>
+                           <legend>Upload File</legend>
+  
+                        <div class="form-group">
+                          <label for="pdfInput">Upload File </label>
+                          <input type="file" id="file2" class="form-control" formControlName="excelSheet" (change)="fileChange($event)">
+                          <span style='font-size:9px'>Only .xls,.xlsv extensions allowed.</span>
+                        </div>
+                        <button class="btn btn-success" [disabled] = "!regForm.valid">Submit</button>
+                        </fieldset>
+                      </form>
+                </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  
